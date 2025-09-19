@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://boe8min7878vu"]
+
+[ext_resource type="Texture2D" uid="uid://bd6lwrc0y8bpl" path="res://sprites/Enemies/Goofball.png" id="1_xrdxo"]
+[ext_resource type="Script" uid="uid://cflewncexd2ud" path="res://scripts/enemy_button.gd" id="2_xrdxo"]
+[ext_resource type="PackedScene" uid="uid://b3wgemaml12r0" path="res://atb_bar.tscn" id="3_bkhal"]
+
+[node name="EnemyButton" type="TextureButton"]
+offset_left = 41.0
+offset_top = 44.0
+offset_right = 81.0
+offset_bottom = 84.0
+texture_normal = ExtResource("1_xrdxo")
+stretch_mode = 0
+script = ExtResource("2_xrdxo")
+
+[node name="ATBBar" parent="." instance=ExtResource("3_bkhal")]
+layout_mode = 0
+offset_top = 43.0
+offset_right = 38.0
+offset_bottom = 48.0
+
+[connection signal="value_changed" from="ATBBar" to="ATBBar" method="_on_value_changed"]

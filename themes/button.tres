@@ -1,0 +1,15 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://b2qjv3opp3bvn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ddxip"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ddxip"]
+
+[resource]
+Button/styles/disabled = null
+Button/styles/focus = SubResource("StyleBoxFlat_ddxip")
+Button/styles/normal = SubResource("StyleBoxEmpty_ddxip")
+Button/styles/pressed = null
+MarginContainer/constants/margin_bottom = 2
+MarginContainer/constants/margin_left = 2
+MarginContainer/constants/margin_right = 2
+MarginContainer/constants/margin_top = 2

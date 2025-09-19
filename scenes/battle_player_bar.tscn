@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3 uid="uid://ck7plw4ipx3x"]
+
+[ext_resource type="Theme" uid="uid://dkmie5ql8lccd" path="res://themes/new_theme.tres" id="1_m8wcv"]
+[ext_resource type="Script" uid="uid://bil075tj4j0cd" path="res://scripts/player_info_bar.gd" id="1_vw7o2"]
+[ext_resource type="Theme" uid="uid://ck7rrgd1tbcjt" path="res://themes/battle.tres" id="2_wd0q2"]
+[ext_resource type="PackedScene" uid="uid://b3wgemaml12r0" path="res://atb_bar.tscn" id="3_wd0q2"]
+
+[sub_resource type="Animation" id="Animation_1fyki"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ebon3"]
+resource_name = "highlight"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.470588)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ognp0"]
+_data = {
+&"RESET": SubResource("Animation_1fyki"),
+&"highlight": SubResource("Animation_ebon3")
+}
+
+[node name="BattlePlayerBar" type="VBoxContainer"]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 55.0
+offset_bottom = 68.0
+theme_override_constants/separation = 1
+script = ExtResource("1_vw7o2")
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("1_m8wcv")
+text = "PLAYER"
+
+[node name="Health" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("2_wd0q2")
+theme_override_font_sizes/font_size = 16
+text = "9999"
+
+[node name="Mana" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("2_wd0q2")
+theme_override_font_sizes/font_size = 16
+text = "999"
+
+[node name="ATBBar" parent="." instance=ExtResource("3_wd0q2")]
+layout_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ognp0")
+}
+
+[connection signal="filled" from="ATBBar" to="." method="_on_atb_bar_filled"]

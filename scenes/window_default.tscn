@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://hnkq2jwyab2r"]
+
+[ext_resource type="Texture2D" uid="uid://bto2j53355q1c" path="res://sprites/gui/textbox.png" id="1_0bl8c"]
+[ext_resource type="Script" uid="uid://ce3ehvprhefig" path="res://scripts/window_default.gd" id="2_gn652"]
+
+[node name="WindowDefault" type="NinePatchRect"]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_0bl8c")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+script = ExtResource("2_gn652")

@@ -1,0 +1,44 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="turn based rpg"
+run/main_scene="uid://b3auk4m02631h"
+config/features=PackedStringArray("4.4", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Debug="*res://debug.gd"
+Data="*res://data.gd"
+
+[display]
+
+window/size/viewport_width=1080
+window/size/viewport_height=720
+window/size/initial_position_type=0
+window/size/borderless=true
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+window/stretch/scale_mode="integer"
+
+[gui]
+
+theme/custom_font="uid://behoq4p3awgxb"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/stretch/mode="disabled"
+textures/size/window_height_override=0
+textures/size/window_width_override=0
